@@ -9,7 +9,7 @@ import { Suspense } from 'react';
  
 export default async function Page({searchParam,}: {searchParam?:{
   query?: string;
-  page?: number;
+  page?: string;
 };
 }) {
   const query = searchParam?.query ?? '';
