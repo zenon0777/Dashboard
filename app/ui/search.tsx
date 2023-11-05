@@ -8,10 +8,10 @@ import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const { replace } = useRouter();
-  const searchParam = useSearchParams();
+  const searchParams = useSearchParams();
   const pathname = usePathname();
-  const handleSearch = useDebouncedCallback((term : string) => {
-    const params  = new URLSearchParams(searchParam);
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const params  = new URLSearchParams(searchParams);
     params.set('page', '1');
     if (term) {
       params.set('query', term);
@@ -30,7 +30,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       </label>
       <input
         onChange={(e) => {handleSearch(e.target.value)}}
-        defaultValue={searchParam.get('query')?.toString()}
+        defaultValue={searchParams.get('query')?.toString()}
         className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
       />
